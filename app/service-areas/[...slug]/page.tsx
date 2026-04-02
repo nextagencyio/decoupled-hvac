@@ -24,7 +24,7 @@ interface ServiceAreaByPathData {
 async function getServiceArea(path: string): Promise<DrupalServiceArea | null> {
   try {
     const client = getClient()
-    const { data } = await client.raw(GET_SERVICE_AREA_BY_PATH, { path })
+    const data = await client.raw(GET_SERVICE_AREA_BY_PATH, { path })
     return data?.route?.entity || null
   } catch (error) {
     console.error('Error fetching service area:', error)

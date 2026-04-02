@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 async function getServiceAreas() {
   try {
     const client = getClient()
-    const { data } = await client.raw(GET_SERVICE_AREAS, { first: 50 })
+    const data = await client.raw(GET_SERVICE_AREAS, { first: 50 })
     return data?.nodeServices?.nodes || []
   } catch (error) {
     console.error('Error fetching service areas:', error)
@@ -55,7 +55,7 @@ export default async function ServiceAreasPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {items.map((item) => (
+              {items.map((item: any) => (
                 <ServiceAreaCard key={item.id} item={item} />
               ))}
             </div>
