@@ -1,12 +1,14 @@
 'use client'
 
-import { useQuery } from '@apollo/client'
+import { useQuery, gql as apolloGql } from '@apollo/client'
 import { GET_SERVICES } from '@/lib/queries'
 import ServiceCard from './ServiceCard'
 import Link from 'next/link'
 
+const SERVICES_QUERY = apolloGql(GET_SERVICES)
+
 export default function ServicesPreview() {
-  const { data, loading } = useQuery(GET_SERVICES, {
+  const { data, loading } = useQuery(SERVICES_QUERY, {
     variables: { first: 3 },
   })
 

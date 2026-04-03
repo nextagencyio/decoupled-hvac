@@ -17,7 +17,7 @@ async function getServiceAreas() {
   try {
     const client = getClient()
     const data = await client.raw(GET_SERVICE_AREAS, { first: 50 })
-    return data?.nodeServices?.nodes || []
+    return data?.nodeServiceAreas?.nodes || []
   } catch (error) {
     console.error('Error fetching service areas:', error)
     return []
